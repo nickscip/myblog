@@ -1,6 +1,5 @@
 # The URL the site will be built for
 base_url = "https://nickscip.github.io"
-theme = "duckquill"
 title = "My Blog"
 
 # Whether to automatically compile all Sass files in the sass directory
