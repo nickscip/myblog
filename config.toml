@@ -1,0 +1,55 @@
+# The URL the site will be built for
+base_url = "https://nickscip.github.io"
+theme = "duckquill"
+title = "My Blog"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+minify_html = true
+generate_feeds = true
+feed_filenames = ["rss.xml"]
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+default_language = "en"
+taxonomies = [{ name = "tags", feed = true }]
+
+[markdown]
+smart_punctuation = true
+
+[markdown.highlighting]
+theme = "Monokai"
+
+[search]
+index_format = "elasticlunr_json"
+
+[extra]
+# Theme accent color
+accent_color = "#ff7800"
+accent_color_dark = "#ffa348"
+
+# Show copy button on code blocks
+show_copy_button = true
+# Show estimated read time in posts
+show_reading_time = true
+
+[extra.nav]
+# Show the Atom/RSS feed button in the nav
+show_feed = true
+# Show the manual theme switcher in the nav
+show_theme_switcher = true
+# Navigation links
+links = [
+    { url = "@/blog/_index.md", name = "Blog" }
+]
+
+[extra.footer]
+# Footer links
+links = [
+    { url = "@/blog/_index.md", name = "Blog" }
+]
+# Show "© Title, YEAR"
+show_copyright = true
+# Show "Powered by Zola and Duckquill"
+show_powered_by = true
