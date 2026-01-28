@@ -111,7 +111,7 @@ function loadComments() {
 					comment.id = `comment-${status.id}`;
 					comment.className = isReply ? "comment comment-reply" : "comment";
 					comment.setAttribute("itemprop", "comment");
-					comment.setAttribute("itemtype", "http://schema.org/Comment");
+					comment.setAttribute("itemtype", "https://schema.org/Comment");
 
 					let avatarSource = document.createElement("source");
 					avatarSource.setAttribute(
@@ -166,7 +166,7 @@ function loadComments() {
 					let display = document.createElement("span");
 					display.className = "display";
 					display.setAttribute("itemprop", "author");
-					display.setAttribute("itemtype", "http://schema.org/Person");
+					display.setAttribute("itemtype", "https://schema.org/Person");
 					display.innerHTML = status.account.display_name;
 
 					let header = document.createElement("header");
