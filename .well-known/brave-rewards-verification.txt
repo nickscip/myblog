@@ -1,0 +1,4 @@
+This is a Brave Creators publisher verification file.
+
+Domain: nickscip.xyz
+Token: 85f146b2ea90d3b525c8127e40b673f78a9eeede22aa1986d1ad187d090c1817
