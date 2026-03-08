@@ -1,0 +1,57 @@
+{% import "macros/rel_attributes.html" as macros_rel_attributes %}
+{% import "macros/translate.html" as macros_translate %}
+
+{%- set language_strings = load_data(path="i18n/" ~ lang ~ '.toml', required=false) -%}
+{%- if not language_strings -%}
+    {%- set language_strings = load_data(path="themes/duckquill/i18n/" ~ lang ~ ".toml", required=false) -%}
+{%- endif -%}
+{%- set rtl_languages = ["ar", "arc", "az", "dv", "ff", "he", "ku", "nqo", "fa", "rhg", "syc", "ur"] -%}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" {% if lang in rtl_languages %}dir="rtl"{% endif %} lang="{{ lang }}" {% include "partials/default_theme.html" %}>
+{% include "partials/head.html" %}
+<body>
+{% block body %}
+	{%- if config.extra.nav.links %}
+		{% include "partials/nav.html" %}
+	{%- endif %}
+	{%- if page.extra.toc_sidebar or section.extra.toc_sidebar -%}
+		<div id="sidebar">
+			<div>
+				{%- include "partials/toc.html" -%}
+			</div>
+		</div>
+	{%- endif -%}
+	<main id="main-content">
+		{% block custom %}{% endblock custom %}
+		{%- if page.extra.go_to_top or section.extra.go_to_top -%}
+			<div id="buttons-container">
+				<a id="go-to-top" href="#top" title="{{ macros_translate::translate(key='go_to_top', default='Go to Top', language_strings=language_strings) }}"><i class="icon"></i></a>
+			</div>
+		{%- endif -%}
+		{% block content %}{% endblock content %}
+		{% include "partials/extra_features.html" %}
+	</main>
+	{% include "partials/footer.html" %}
+
+	{%- if config.extra.now_listening %}
+	<div class="now-listening" id="now-listening">
+		<button class="now-listening-toggle" id="now-listening-toggle" aria-label="Toggle now listening widget">&#9835;</button>
+		<div class="now-listening-panel" id="now-listening-panel">
+			<img class="now-listening-cover" src="{{ config.extra.now_listening.cover | safe }}" alt="{{ config.extra.now_listening.album }}">
+			<div class="now-listening-info">
+				<div class="now-listening-album">{{ config.extra.now_listening.album }}</div>
+				<div class="now-listening-artist">{{ config.extra.now_listening.artist }}</div>
+				<div class="now-listening-blurb">{{ config.extra.now_listening.blurb }}</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		document.getElementById("now-listening-toggle").addEventListener("click", function() {
+			document.getElementById("now-listening-panel").classList.toggle("open");
+		});
+	</script>
+	{%- endif %}
+{% endblock body %}
+</body>
+</html>

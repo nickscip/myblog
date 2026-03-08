@@ -25,6 +25,7 @@ theme = "Monokai"
 index_format = "elasticlunr_json"
 
 [extra]
+styles = ["custom.css"]
 # Theme accent color
 accent_color = "#ff7800"
 accent_color_dark = "#ffa348"
@@ -33,6 +34,12 @@ accent_color_dark = "#ffa348"
 show_copy_button = true
 # Show estimated read time in posts
 show_reading_time = true
+
+[extra.now_listening]
+album = "The Fall Off"
+artist = "J. Cole"
+cover = "/album-cover.jpg"
+blurb = "Cole came back with something real. Every track hits different."
 
 [extra.nav]
 # Show the Atom/RSS feed button in the nav
