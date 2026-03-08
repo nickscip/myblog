@@ -1,0 +1,42 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Zola
+        run: |
+          curl -sL https://github.com/getzola/zola/releases/download/v0.19.2/zola-v0.19.2-x86_64-unknown-linux-gnu.tar.gz | tar xz
+          sudo mv zola /usr/local/bin/
+
+      - name: Build site
+        run: zola build
+
+      - name: Check links
+        run: zola check
+
+      - name: Verify expected output files exist
+        run: |
+          test -f public/index.html
+          test -f public/custom.css
+          test -f public/bluesky-comments.js
+          test -f public/album-cover.jpg
+          test -f public/rss.xml
+          test -f public/elasticlunr.min.js
+          echo "All expected files present."
+
+      - name: Verify custom components in output
+        run: |
+          grep -q "not-ai-badge" public/index.html
+          echo "Not-AI badge found."
+          grep -q "now-listening" public/index.html
+          echo "Now-listening widget found."
