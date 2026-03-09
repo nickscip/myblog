@@ -40,9 +40,15 @@
 		<div class="now-listening-panel" id="now-listening-panel">
 			<img class="now-listening-cover" src="{{ config.extra.now_listening.cover | safe }}" alt="{{ config.extra.now_listening.album }}">
 			<div class="now-listening-info">
-				<div class="now-listening-album">{{ config.extra.now_listening.album }}</div>
+				<div class="now-listening-album">{{ config.extra.now_listening.album }} <span class="now-listening-year">({{ config.extra.now_listening.year }})</span></div>
 				<div class="now-listening-artist">{{ config.extra.now_listening.artist }}</div>
 				<div class="now-listening-blurb">{{ config.extra.now_listening.blurb }}</div>
+				{%- if config.extra.now_listening.fav_song %}
+				<div class="now-listening-fav">Fav Song: {{ config.extra.now_listening.fav_song }}</div>
+				{%- endif %}
+				{%- if config.extra.now_listening.spotify_track_id %}
+				<iframe class="now-listening-spotify" src="https://open.spotify.com/embed/track/{{ config.extra.now_listening.spotify_track_id }}?utm_source=generator&theme=0" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify: {{ config.extra.now_listening.fav_song | default(value=config.extra.now_listening.album) }}"></iframe>
+				{%- endif %}
 			</div>
 		</div>
 	</div>

@@ -38,8 +38,12 @@ show_reading_time = true
 [extra.now_listening]
 album = "The Fall Off"
 artist = "J. Cole"
-cover = "/album-cover.jpg"
-blurb = "Cole came back with something real. Every track hits different."
+year = "2026"
+fav_song = "Quik Stop"
+# Spotify track ID from the track URL: open.spotify.com/track/{id}
+spotify_track_id = "050ECC7Yu78pTJP8PrMo8o"
+cover = "/fall_off.jpg"
+blurb = "Cole's best songs appear alongside plenty of skips on this overhyped yet career-best double album."
 
 [extra.nav]
 # Show the Atom/RSS feed button in the nav
