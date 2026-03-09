@@ -38,6 +38,7 @@
 	<div class="now-listening" id="now-listening">
 		<button class="now-listening-toggle" id="now-listening-toggle" aria-label="Toggle now listening widget">&#9835;</button>
 		<div class="now-listening-panel" id="now-listening-panel">
+			<button class="now-listening-close" id="now-listening-close" aria-label="Close">&times;</button>
 			<img class="now-listening-cover" src="{{ config.extra.now_listening.cover | safe }}" alt="{{ config.extra.now_listening.album }}">
 			<div class="now-listening-info">
 				<div class="now-listening-album">{{ config.extra.now_listening.album }} <span class="now-listening-year">({{ config.extra.now_listening.year }})</span></div>
@@ -55,6 +56,15 @@
 	<script>
 		document.getElementById("now-listening-toggle").addEventListener("click", function() {
 			document.getElementById("now-listening-panel").classList.toggle("open");
+		});
+		document.getElementById("now-listening-close").addEventListener("click", function() {
+			document.getElementById("now-listening-panel").classList.remove("open");
+		});
+		document.addEventListener("click", function(e) {
+			var widget = document.getElementById("now-listening");
+			if (!widget.contains(e.target)) {
+				document.getElementById("now-listening-panel").classList.remove("open");
+			}
 		});
 	</script>
 	{%- endif %}
