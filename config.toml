@@ -43,7 +43,7 @@ fav_song = "Quik Stop"
 # Spotify track ID from the track URL: open.spotify.com/track/{id}
 spotify_track_id = "050ECC7Yu78pTJP8PrMo8o"
 cover = "/fall_off.jpg"
-blurb = "Cole's best songs appear alongside plenty of skips on this overhyped yet career-best double album."
+blurb = "Cole pens a strong collection of tracks alongside a few skips on this overhyped yet career-best double album."
 
 [extra.nav]
 # Show the Atom/RSS feed button in the nav

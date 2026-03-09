@@ -46,10 +46,10 @@
 				{%- if config.extra.now_listening.fav_song %}
 				<div class="now-listening-fav">Fav Song: {{ config.extra.now_listening.fav_song }}</div>
 				{%- endif %}
-				{%- if config.extra.now_listening.spotify_track_id %}
-				<iframe class="now-listening-spotify" src="https://open.spotify.com/embed/track/{{ config.extra.now_listening.spotify_track_id }}?utm_source=generator&theme=0" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify: {{ config.extra.now_listening.fav_song | default(value=config.extra.now_listening.album) }}"></iframe>
-				{%- endif %}
 			</div>
+			{%- if config.extra.now_listening.spotify_track_id %}
+			<iframe class="now-listening-spotify" src="https://open.spotify.com/embed/track/{{ config.extra.now_listening.spotify_track_id }}?utm_source=generator&theme=0" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify: {{ config.extra.now_listening.fav_song | default(value=config.extra.now_listening.album) }}"></iframe>
+			{%- endif %}
 		</div>
 	</div>
 	<script>
