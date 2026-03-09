@@ -8,6 +8,29 @@
 {%- endif -%}
 {{ page.content | safe }}
 
+{%- if page.extra.comments is undefined or page.extra.comments != false -%}
+<section id="giscus-comments">
+	<h2>Comments</h2>
+	<script
+		src="https://giscus.app/client.js"
+		data-repo="nickscip/myblog"
+		data-repo-id="R_kgDOQ4mrnQ"
+		data-category="Announcements"
+		data-category-id="DIC_kwDOQ4mrnc4C4CbM"
+		data-mapping="pathname"
+		data-strict="0"
+		data-reactions-enabled="1"
+		data-emit-metadata="0"
+		data-input-position="top"
+		data-theme="preferred_color_scheme"
+		data-lang="en"
+		data-loading="lazy"
+		crossorigin="anonymous"
+		async>
+	</script>
+</section>
+{%- endif -%}
+
 {%- if page.extra.bluesky_post_uri -%}
 <section id="bluesky-comments">
 	<h2>Comments</h2>
