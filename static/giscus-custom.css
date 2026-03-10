@@ -70,9 +70,9 @@ main {
   --color-border-default: rgba(0, 0, 0, 0.15);
   --color-border-muted: rgba(0, 0, 0, 0.08);
   --color-neutral-muted: rgba(0, 0, 0, 0.08);
-  --color-accent-fg: #ff7800;
-  --color-accent-emphasis: #ff7800;
-  --color-accent-muted: rgba(255, 120, 0, 0.4);
+  --color-accent-fg: #b85400;
+  --color-accent-emphasis: #b85400;
+  --color-accent-muted: rgba(184, 84, 0, 0.4);
   --color-accent-subtle: #fff3e6;
   --color-success-fg: #1a7f37;
   --color-attention-fg: #9a6700;
