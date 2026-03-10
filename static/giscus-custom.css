@@ -118,6 +118,10 @@ main .gsc-loading-image {
   padding-bottom: 0.5rem;
 }
 
+.gsc-comments-count {
+  color: #1a120d !important;
+}
+
 .gsc-comments > .gsc-comment {
   border-radius: 12px !important;
 }
@@ -216,5 +220,9 @@ main .gsc-loading-image {
 
   main .gsc-loading-image {
     background-image: url("https://github.githubassets.com/images/mona-loading-dark.gif");
+  }
+
+  .gsc-comments-count {
+    color: #e8ddd3 !important;
   }
 }
