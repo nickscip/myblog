@@ -8,7 +8,6 @@
 {%- endif -%}
 {{ page.content | safe }}
 
-{%- if page.extra.comments is undefined or page.extra.comments != false -%}
 <section id="giscus-comments">
 	<h2>Comments</h2>
 	<script
@@ -29,7 +28,6 @@
 		async>
 	</script>
 </section>
-{%- endif -%}
 
 {%- if page.extra.bluesky_post_uri -%}
 <section id="bluesky-comments">

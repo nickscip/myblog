@@ -1,0 +1,59 @@
+@import url("https://giscus.app/default.css");
+
+.gsc-main {
+  padding: 0.75rem;
+}
+
+.gsc-comment-box {
+  border-radius: 12px !important;
+}
+
+.gsc-comment-box-tabs {
+  border-radius: 12px 12px 0 0 !important;
+}
+
+.gsc-comment-box-textarea {
+  border-radius: 8px !important;
+}
+
+.gsc-header {
+  padding-bottom: 0.5rem;
+}
+
+.gsc-comments > .gsc-comment {
+  border-radius: 12px !important;
+}
+
+:root {
+  --color-canvas-default: #faf4ee;
+  --color-canvas-subtle: #f0e8df;
+  --color-border-default: rgba(0, 0, 0, 0.12);
+  --color-border-muted: rgba(0, 0, 0, 0.08);
+  --color-fg-default: #2c2017;
+  --color-fg-muted: #6b5d4f;
+  --color-fg-subtle: #9a8c7e;
+  --color-accent-fg: #ff7800;
+  --color-accent-emphasis: #ff7800;
+  --color-btn-bg: #f0e8df;
+  --color-btn-border: rgba(0, 0, 0, 0.12);
+  --color-btn-hover-bg: #e6ddd3;
+  --color-btn-hover-border: rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-canvas-default: #1a1210;
+    --color-canvas-subtle: #231a16;
+    --color-border-default: rgba(255, 255, 255, 0.1);
+    --color-border-muted: rgba(255, 255, 255, 0.06);
+    --color-fg-default: #e8ddd3;
+    --color-fg-muted: #9a8c7e;
+    --color-fg-subtle: #6b5d4f;
+    --color-accent-fg: #ffa348;
+    --color-accent-emphasis: #ffa348;
+    --color-btn-bg: #231a16;
+    --color-btn-border: rgba(255, 255, 255, 0.1);
+    --color-btn-hover-bg: #2e2420;
+    --color-btn-hover-border: rgba(255, 255, 255, 0.2);
+  }
+}
