@@ -34,36 +34,110 @@
 	</main>
 	{% include "partials/footer.html" %}
 
-	{%- if config.extra.now_listening %}
+	{%- if config.extra.record_collection %}
 	<div class="now-listening" id="now-listening">
 		<button class="now-listening-toggle" id="now-listening-toggle" aria-label="Toggle now listening widget">&#9835;</button>
 		<div class="now-listening-panel" id="now-listening-panel">
 			<button class="now-listening-close" id="now-listening-close" aria-label="Close">&times;</button>
-			<img class="now-listening-cover" src="{{ config.extra.now_listening.cover | safe }}" alt="{{ config.extra.now_listening.album }}">
-			<div class="now-listening-info">
-				<div class="now-listening-album">{{ config.extra.now_listening.album }} <span class="now-listening-year">({{ config.extra.now_listening.year }})</span></div>
-				<div class="now-listening-artist">{{ config.extra.now_listening.artist }}</div>
-				<div class="now-listening-blurb">{{ config.extra.now_listening.blurb }}</div>
-				{%- if config.extra.now_listening.fav_song %}
-				<div class="now-listening-fav">Fav Song: {{ config.extra.now_listening.fav_song }}</div>
-				{%- endif %}
+			<img class="now-listening-cover" id="now-listening-cover" src="" alt="">
+			<div class="now-listening-nav-row" id="now-listening-nav-row">
+				<button class="now-listening-nav" id="now-listening-prev" aria-label="Previous album">&#8249;</button>
+				<span class="now-listening-counter" id="now-listening-counter"></span>
+				<button class="now-listening-nav" id="now-listening-next" aria-label="Next album">&#8250;</button>
 			</div>
-			{%- if config.extra.now_listening.spotify_track_id %}
-			<iframe class="now-listening-spotify" src="https://open.spotify.com/embed/track/{{ config.extra.now_listening.spotify_track_id }}?utm_source=generator&theme=0" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify: {{ config.extra.now_listening.fav_song | default(value=config.extra.now_listening.album) }}"></iframe>
-			{%- endif %}
+			<div class="now-listening-info">
+				<div class="now-listening-album" id="now-listening-album"></div>
+				<div class="now-listening-artist" id="now-listening-artist"></div>
+				<div class="now-listening-blurb" id="now-listening-blurb"></div>
+				<div class="now-listening-fav" id="now-listening-fav"></div>
+			</div>
+			<div class="now-listening-spotify" id="now-listening-spotify"></div>
 		</div>
 	</div>
 	<script>
+		var records = [
+		{%- for r in config.extra.record_collection %}
+			{
+				album: "{{ r.album | replace(from='\', to='\\') | replace(from='"', to='\\"') }}",
+				artist: "{{ r.artist | replace(from='\', to='\\') | replace(from='"', to='\\"') }}",
+				year: "{{ r.year }}",
+				fav_song: "{{ r.fav_song | default(value='') | replace(from='\', to='\\') | replace(from='"', to='\\"') }}",
+				spotify_track_id: "{{ r.spotify_track_id | default(value='') }}",
+				cover: "{{ r.cover | safe }}",
+				blurb: "{{ r.blurb | default(value='') | replace(from='\', to='\\') | replace(from='"', to='\\"') }}"
+			},
+		{%- endfor %}
+		];
+		var idx = Math.floor(Math.random() * records.length);
+		var panel = document.getElementById("now-listening-panel");
+		var coverEl = document.getElementById("now-listening-cover");
+		var albumEl = document.getElementById("now-listening-album");
+		var artistEl = document.getElementById("now-listening-artist");
+		var blurbEl = document.getElementById("now-listening-blurb");
+		var favEl = document.getElementById("now-listening-fav");
+		var spotifyEl = document.getElementById("now-listening-spotify");
+		var counterEl = document.getElementById("now-listening-counter");
+		var navRow = document.getElementById("now-listening-nav-row");
+		var prevBtn = document.getElementById("now-listening-prev");
+		var nextBtn = document.getElementById("now-listening-next");
+		var hasNav = records.length > 1;
+
+		records.forEach(function(r) { new Image().src = r.cover; });
+
+		if (!hasNav) {
+			navRow.style.display = "none";
+		}
+
+		function render(i) {
+			var r = records[i];
+			coverEl.src = r.cover;
+			coverEl.alt = r.album;
+			albumEl.innerHTML = r.album + ' <span class="now-listening-year">(' + r.year + ')</span>';
+			artistEl.textContent = r.artist;
+			blurbEl.textContent = r.blurb;
+			if (r.fav_song) {
+				favEl.textContent = "Fav Song: " + r.fav_song;
+				favEl.style.display = "";
+			} else {
+				favEl.style.display = "none";
+			}
+			spotifyEl.innerHTML = "";
+			if (r.spotify_track_id) {
+				var iframe = document.createElement("iframe");
+				iframe.src = "https://open.spotify.com/embed/track/" + r.spotify_track_id + "?utm_source=generator&theme=0";
+				iframe.setAttribute("frameborder", "0");
+				iframe.setAttribute("allow", "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture");
+				iframe.setAttribute("loading", "lazy");
+				iframe.title = "Spotify: " + (r.fav_song || r.album);
+				iframe.className = "now-listening-spotify-iframe";
+				spotifyEl.appendChild(iframe);
+			}
+			if (hasNav) {
+				counterEl.textContent = (i + 1) + " / " + records.length;
+			}
+		}
+		render(idx);
+
 		document.getElementById("now-listening-toggle").addEventListener("click", function() {
-			document.getElementById("now-listening-panel").classList.toggle("open");
+			panel.classList.toggle("open");
 		});
 		document.getElementById("now-listening-close").addEventListener("click", function() {
-			document.getElementById("now-listening-panel").classList.remove("open");
+			panel.classList.remove("open");
+		});
+		prevBtn.addEventListener("click", function(e) {
+			e.stopPropagation();
+			idx = (idx - 1 + records.length) % records.length;
+			render(idx);
+		});
+		nextBtn.addEventListener("click", function(e) {
+			e.stopPropagation();
+			idx = (idx + 1) % records.length;
+			render(idx);
 		});
 		document.addEventListener("click", function(e) {
 			var widget = document.getElementById("now-listening");
 			if (!widget.contains(e.target)) {
-				document.getElementById("now-listening-panel").classList.remove("open");
+				panel.classList.remove("open");
 			}
 		});
 	</script>

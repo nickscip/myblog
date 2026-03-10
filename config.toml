@@ -35,15 +35,23 @@ show_copy_button = true
 # Show estimated read time in posts
 show_reading_time = true
 
-[extra.now_listening]
+[[extra.record_collection]]
 album = "The Fall Off"
 artist = "J. Cole"
 year = "2026"
 fav_song = "Quik Stop"
-# Spotify track ID from the track URL: open.spotify.com/track/{id}
 spotify_track_id = "050ECC7Yu78pTJP8PrMo8o"
 cover = "/fall_off.jpg"
 blurb = "Cole pens a strong collection of tracks alongside a few skips on this overhyped yet career-best double album."
+
+[[extra.record_collection]]
+album = "RAM"
+artist = "Paul and Linda McCartney"
+year = "1971"
+fav_song = "Heart of the Country"
+spotify_track_id = "0xRaZsAPZzGhO9x46cnA1W"
+cover = "/RamMcCartneyalbumcover.jpg"
+blurb = "Truly nothing better than horse and a sheep!"
 
 [extra.nav]
 # Show the Atom/RSS feed button in the nav
