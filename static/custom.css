@@ -63,6 +63,19 @@
   opacity: 0.8;
 }
 
+@media (max-width: 600px) {
+  .h-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .h-card .u-photo {
+    width: 200px;
+    max-width: 200px;
+    height: 200px;
+  }
+}
+
 /* Giscus comments */
 #giscus-comments {
   margin-top: 2rem;
