@@ -51,6 +51,38 @@
   flex-shrink: 0;
 }
 
+.avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 300px;
+  height: 300px;
+  display: block;
+  text-decoration: none;
+}
+
+.avatar-credit {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  right: 10%;
+  z-index: 1;
+  text-align: center;
+  padding: 0.4em 0.5em;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.75rem;
+  text-decoration: none;
+  border-radius: 999px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.avatar-wrap:hover .avatar-credit,
+.avatar-wrap:focus .avatar-credit,
+.avatar-wrap:focus-within .avatar-credit {
+  opacity: 1;
+}
+
 .h-card .p-name {
   font-size: 1.25rem;
   font-weight: 700;
@@ -67,6 +99,11 @@
   .h-card {
     flex-direction: column;
     text-align: center;
+  }
+
+  .avatar-wrap {
+    width: 200px;
+    height: 200px;
   }
 
   .h-card .u-photo {
