@@ -40,3 +40,5 @@ jobs:
           echo "Not-AI badge found."
           grep -q "now-listening" public/index.html
           echo "Now-listening widget found."
+          grep -q "webring" public/index.html
+          echo "Webring widget found."
