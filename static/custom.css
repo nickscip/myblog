@@ -35,6 +35,32 @@
   opacity: 0.7;
 }
 
+.h-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.h-card .u-photo {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.h-card .p-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.h-card .p-note {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
 /* Giscus comments */
 #giscus-comments {
   margin-top: 2rem;
