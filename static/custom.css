@@ -44,9 +44,11 @@
 
 .h-card .u-photo {
   width: 250px;
+  max-width: 250px;
   height: 250px;
   border-radius: 50%;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 .h-card .p-name {
