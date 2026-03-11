@@ -66,7 +66,8 @@
 		<ul id="socials">
 			{%- for link in config.extra.footer.socials %}
 				<li>
-					<a href="{{ link.url | safe }}" rel="{{ rel_attributes }} me" title="{{ link.name }}">
+					{%- set social_rel = "me " ~ rel_attributes | trim -%}
+				<a href="{{ link.url | safe }}" rel="{{ social_rel | trim }}" title="{{ link.name }}">
 						<i class="icon" style='--icon: url("data:image/svg+xml,{{ link.icon }}")'></i>
 						<span>{{ link.name }}</span>
 					</a>
