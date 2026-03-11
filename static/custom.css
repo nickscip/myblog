@@ -43,9 +43,9 @@
 }
 
 .h-card .u-photo {
-  width: 250px;
-  max-width: 250px;
-  height: 250px;
+  width: 350px;
+  max-width: 350px;
+  height: 350px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
