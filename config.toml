@@ -51,7 +51,16 @@ year = "1971"
 fav_song = "Heart of the Country"
 spotify_track_id = "0xRaZsAPZzGhO9x46cnA1W"
 cover = "/RamMcCartneyalbumcover.jpg"
-blurb = "Truly nothing better than horse and a sheep!"
+blurb = "Nothing in our modern world bests singing with a horse and a sheep"
+
+[[extra.record_collection]]
+album = "Ca$ino"
+artist = "Baby Keem"
+year = "2026"
+fav_song = "I Am Not a Lyricist"
+spotify_track_id = "76uwSqRmmSfRZVocIceH1b"
+cover = "/Baby_Keem_-_Casino.png"
+blurb = "When people ask why I'm from Vegas and don't gamble, showing them this."
 
 [extra.nav]
 # Show the Atom/RSS feed button in the nav

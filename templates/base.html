@@ -58,13 +58,13 @@
 		var records = [
 		{%- for r in config.extra.record_collection %}
 			{
-				album: "{{ r.album | replace(from='\', to='\\') | replace(from='"', to='\\"') }}",
-				artist: "{{ r.artist | replace(from='\', to='\\') | replace(from='"', to='\\"') }}",
+				album: "{{ r.album | replace(from='\', to='\\') | replace(from='"', to='\\"') | safe }}",
+				artist: "{{ r.artist | replace(from='\', to='\\') | replace(from='"', to='\\"') | safe }}",
 				year: "{{ r.year }}",
-				fav_song: "{{ r.fav_song | default(value='') | replace(from='\', to='\\') | replace(from='"', to='\\"') }}",
+				fav_song: "{{ r.fav_song | default(value='') | replace(from='\', to='\\') | replace(from='"', to='\\"') | safe }}",
 				spotify_track_id: "{{ r.spotify_track_id | default(value='') }}",
 				cover: "{{ r.cover | safe }}",
-				blurb: "{{ r.blurb | default(value='') | replace(from='\', to='\\') | replace(from='"', to='\\"') }}"
+				blurb: "{{ r.blurb | default(value='') | replace(from='\', to='\\') | replace(from='"', to='\\"') | safe }}"
 			},
 		{%- endfor %}
 		];
