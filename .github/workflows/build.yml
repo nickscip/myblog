@@ -20,3 +20,4 @@ jobs:
         env:
           PAGES_BRANCH: gh-pages
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}

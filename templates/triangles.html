@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ get_url(path='triangles.css') | safe }}?v={{ now() | date(format='%s') }}" />
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" />
+{%- if config.extra.nav.links %}
+	{% include "partials/nav.html" %}
+{%- endif %}
+<main id="main-content" class="triangles-main">
+	<div class="triangles-page">
+		<aside class="triangles-sidebar" aria-label="List of triangles">
+			<h1 class="triangles-heading">Triangles of the World</h1>
+			<p class="triangles-intro">Click a triangle to fly there. Hover one on the globe for details.</p>
+			<ul class="triangles-list" id="triangles-list" role="listbox"></ul>
+		</aside>
+		<div class="triangles-globe-wrap">
+			<div id="triangles-globe"></div>
+			<noscript><p class="triangles-noscript">This globe needs JavaScript.</p></noscript>
+		</div>
+	</div>
+</main>
+{% include "partials/footer.html" %}
+{% include "partials/now_listening.html" %}
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+{%- set mb_token = get_env(name='MAPBOX_TOKEN', default='') -%}
+{% if mb_token %}
+<script>window.MAPBOX_TOKEN = "{{ mb_token | safe }}";</script>
+{% else %}
+<script src="{{ get_url(path='mapbox-token.js') | safe }}?v={{ now() | date(format='%s') }}"></script>
+{% endif %}
+<script src="{{ get_url(path='triangles.js') | safe }}?v={{ now() | date(format='%s') }}"></script>
+{% endblock body %}

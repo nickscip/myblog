@@ -1,0 +1,230 @@
+/* Triangles page uses its own wide main element, bypassing duckquill's
+   720px content cap. */
+main.triangles-main {
+	width: min(1500px, 95vw) !important;
+	max-width: 95vw !important;
+	margin: 4.25rem auto 4rem !important;
+	padding: 0 !important;
+}
+
+.triangles-page {
+	display: grid;
+	grid-template-columns: minmax(280px, 340px) 1fr;
+	gap: 1.5rem;
+	min-height: 75vh;
+	width: 100%;
+}
+
+.triangles-heading {
+	margin: 0 0 0.25rem;
+	font-size: 1.5rem;
+}
+
+.triangles-intro {
+	margin: 0 0 1rem;
+	font-size: 0.85rem;
+	opacity: 0.7;
+}
+
+/* Override duckquill's typographic <aside> styling (float, accent
+   background, 30% width) so this sidebar stays in the grid layout. */
+.triangles-sidebar {
+	float: none;
+	width: auto;
+	margin: 0;
+	padding: 0 0.25rem 0 0;
+	background: transparent;
+	box-shadow: none;
+	border-radius: 0;
+	max-height: 75vh;
+	overflow-y: auto;
+	min-width: 0;
+}
+
+.triangles-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.triangles-list li {
+	margin: 0;
+	padding: 0;
+}
+
+.triangle-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.6rem;
+	width: 100%;
+	padding: 0.55rem 0.7rem;
+	background: transparent;
+	border: 1px solid var(--fg-muted-2, rgba(127, 127, 127, 0.25));
+	border-radius: var(--rounded-corner-small, 0.5rem);
+	color: inherit;
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+	transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+	overflow-wrap: normal;
+	word-break: normal;
+}
+
+.triangle-row:hover,
+.triangle-row:focus-visible {
+	background: var(--fg-muted-1, rgba(127, 127, 127, 0.08));
+	border-color: var(--accent-color, #ff7800);
+	outline: none;
+}
+
+.triangles-list li.active .triangle-row {
+	background: var(--fg-muted-1, rgba(127, 127, 127, 0.08));
+	border-color: var(--accent-color, #ff7800);
+}
+
+.triangle-row:active {
+	transform: scale(0.99);
+}
+
+.triangle-swatch {
+	flex-shrink: 0;
+	width: 0.85rem;
+	height: 0.85rem;
+	margin-top: 0.3rem;
+	border-radius: 999px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;
+}
+
+.triangle-meta {
+	display: flex;
+	flex-direction: column;
+	gap: 0.15rem;
+	min-width: 0;
+}
+
+.triangle-name {
+	font-weight: 600;
+	font-size: 0.95rem;
+	line-height: 1.2;
+}
+
+.triangle-desc {
+	font-size: 0.78rem;
+	line-height: 1.35;
+	opacity: 0.7;
+}
+
+.triangles-globe-wrap {
+	position: relative;
+	min-height: 75vh;
+	border-radius: var(--rounded-corner, 0.75rem);
+	overflow: hidden;
+	background: #0b1020;
+}
+
+#triangles-globe {
+	width: 100%;
+	height: 100%;
+	min-height: 75vh;
+	position: relative;
+}
+
+#triangles-globe canvas {
+	outline: none;
+	display: block;
+}
+
+.triangles-noscript {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	font-size: 0.9rem;
+	opacity: 0.7;
+}
+
+.triangles-error {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	min-height: 50vh;
+	padding: 2rem;
+	text-align: center;
+	color: var(--fg-color, #f3f3f3);
+	background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+}
+
+.triangles-error strong {
+	font-size: 1.05rem;
+}
+
+.triangles-error p {
+	margin: 0;
+	max-width: 36ch;
+	font-size: 0.9rem;
+	line-height: 1.45;
+	opacity: 0.85;
+}
+
+.triangles-error-detail {
+	opacity: 0.6;
+	font-size: 0.82rem;
+}
+
+.triangle-tip {
+	max-width: 240px;
+	padding: 0.55rem 0.7rem;
+	font-size: 0.82rem;
+	line-height: 1.4;
+	background: var(--bg-color, #111);
+	color: var(--fg-color, #f3f3f3);
+	border: 1px solid var(--fg-muted-2, rgba(127, 127, 127, 0.4));
+	border-radius: var(--rounded-corner-small, 0.5rem);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.triangle-tip-floating {
+	position: absolute;
+	pointer-events: none;
+	z-index: 5;
+	left: 0;
+	top: 0;
+}
+
+.triangle-tip strong {
+	display: block;
+	margin-bottom: 0.25rem;
+	font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+	.triangles-page {
+		grid-template-columns: 1fr;
+	}
+
+	.triangles-sidebar {
+		max-height: none;
+		order: 2;
+	}
+
+	.triangles-globe-wrap {
+		order: 1;
+		min-height: 55vh;
+	}
+
+	#triangles-globe {
+		min-height: 55vh;
+	}
+
+	.triangle-desc {
+		display: none;
+	}
+}
