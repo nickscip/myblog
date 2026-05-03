@@ -208,23 +208,85 @@ main.triangles-main {
 @media (max-width: 900px) {
 	.triangles-page {
 		grid-template-columns: 1fr;
-	}
-
-	.triangles-sidebar {
-		max-height: none;
-		order: 2;
+		grid-template-rows: minmax(0, 1.1fr) minmax(0, 1fr);
+		height: calc(100dvh - 8rem);
+		min-height: 600px;
+		gap: 0.75rem;
 	}
 
 	.triangles-globe-wrap {
 		order: 1;
-		min-height: 55vh;
+		min-height: 0;
 	}
 
 	#triangles-globe {
-		min-height: 55vh;
+		min-height: 0;
+		height: 100%;
+	}
+
+	.triangles-sidebar {
+		order: 2;
+		max-height: none;
+		min-height: 0;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.triangles-heading {
+		font-size: 1.15rem;
+	}
+
+	.triangles-intro {
+		display: none;
 	}
 
 	.triangle-desc {
 		display: none;
 	}
+}
+
+/* Mapbox popup — match site theme. */
+.mapboxgl-popup-content {
+	background: var(--bg-color, #111) !important;
+	color: var(--fg-color, #f3f3f3) !important;
+	border: 1px solid var(--fg-muted-2, rgba(127, 127, 127, 0.4)) !important;
+	border-radius: var(--rounded-corner-small, 0.5rem) !important;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+	padding: 0.75rem 0.85rem !important;
+}
+
+.mapboxgl-popup-close-button {
+	color: var(--fg-color, #f3f3f3) !important;
+	font-size: 1.1rem !important;
+	padding: 0 0.4rem !important;
+}
+
+.mapboxgl-popup-tip {
+	border-top-color: var(--bg-color, #111) !important;
+	border-bottom-color: var(--bg-color, #111) !important;
+}
+
+.triangle-popup strong {
+	display: block;
+	margin-bottom: 0.35rem;
+	font-size: 0.95rem;
+}
+
+.triangle-popup p {
+	margin: 0 0 0.5rem;
+	font-size: 0.85rem;
+	line-height: 1.45;
+	opacity: 0.9;
+}
+
+.triangle-popup a {
+	display: inline-block;
+	font-size: 0.82rem;
+	color: var(--accent-color, #ff7800);
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.triangle-popup a:hover {
+	text-decoration: underline;
 }
