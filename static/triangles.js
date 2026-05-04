@@ -209,6 +209,19 @@
 				[36.7378, -119.7871],
 				[39.5296, -119.8138]
 			]
+		},
+		{
+			id: "dutch-fork",
+			name: "Dutch Fork",
+			color: "#fb923c",
+			description:
+				"A wedge of central South Carolina between the Broad and Saluda rivers, settled in the 1740s by German (\"Deutsch\") immigrants whose name was anglicized into \"Dutch.\"",
+			wiki: "https://en.wikipedia.org/wiki/Dutch_Fork",
+			corners: [
+				[34.0007, -81.0348],
+				[34.2746, -81.6093],
+				[34.5023, -81.4126]
+			]
 		}
 	];
 
