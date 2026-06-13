@@ -222,6 +222,19 @@
 				[34.2746, -81.6093],
 				[34.5023, -81.4126]
 			]
+		},
+		{
+			id: "austin-triangle",
+			name: "The Triangle",
+			color: "#06b6d4",
+			description:
+				"A 22-acre mixed-use neighborhood in north-central Austin, wedged between North Lamar Boulevard, Guadalupe Street, and West 45th Street on a wooded triangular tract.",
+			wiki: "https://en.wikipedia.org/wiki/The_Triangle_(Austin,_Texas)",
+			corners: [ // y, -x -- origin at lat/long 0/0
+        [30.3168, -97.7320], // 1
+        [30.3110, -97.7325], // 2
+        [30.3137, -97.7375], // 3
+			]
 		}
 	];
 
