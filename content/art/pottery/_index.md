@@ -23,12 +23,18 @@ Pieces I've thrown on the wheel.
 
 ## Use Me Plate
 
+<div class="gallery-single">
 {{ image(url="UseMePlate.jpg", alt="Use Me Plate") }}
+</div>
 
 ## I ❤ Art
 
+<div class="gallery-single">
 {{ video(url="IHeartArt.mp4", alt="I Heart Art", autoplay=true, muted=true, loop=true, playsinline=true) }}
+</div>
 
 ## Incense Diffuser
 
+<div class="gallery-single">
 {{ video(url="IncenseDiffuser.mp4", alt="Incense Diffuser", autoplay=true, muted=true, loop=true, playsinline=true) }}
+</div>

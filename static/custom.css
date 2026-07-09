@@ -13,6 +13,19 @@
   object-fit: cover;
 }
 
+.gallery-single {
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-single img,
+.gallery-single video {
+  max-height: 70vh;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 .not-ai-badge {
   display: inline-block;
   padding: 0.25em 0.75em;
