@@ -2,6 +2,7 @@
 base_url = "https://nickscip.xyz"
 theme = "duckquill"
 title = "My Blog"
+description = "Nickolas \"Nick\" Scipione's blog — an Austin-based AI Engineer writing about whatever comes to mind."
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
