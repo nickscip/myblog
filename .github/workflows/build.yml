@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Build and deploy
         # Using master to get latest Zola version (v0.17.1 is too old for current config)
-        uses: shalzz/zola-deploy-action@master
+        uses: shalzz/zola-deploy-action@v0.19.2
         env:
           PAGES_BRANCH: gh-pages
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
